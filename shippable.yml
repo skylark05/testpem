@@ -4,7 +4,7 @@ resources:
     integration: my_key
     
 jobs:
-  - name: j1
+  - name: test_pem
     type: runSh
     steps:
       - IN: my_key
