@@ -10,8 +10,9 @@ jobs:
       - IN: my_key
       - TASK:
           script:
+            - shipctl get_integration_resource_field my_key "key"
             - export KEY=$(shipctl get_integration_resource_field my_key "key")
-            - echo "$KEY" > /tmp/key.pem
+            - echo -e "$KEY" > /tmp/key.pem
             - cat /tmp/key.pem
             - cp $MY_KEY_KEYPATH /tmp/my_key.pem
             - cat /tmp/my_key.pem
