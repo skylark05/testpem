@@ -13,5 +13,5 @@ jobs:
             - export KEY=$(shipctl get_integration_resource_field my_key "key")
             - echo $KEY > /tmp/key.pem
             - cat /tmp/key.pem
-            - shipctl copy_file_from_resource_state my_key my_key_key.pem /tmp/my_key.pem
+            - cp $MY_KEY_KEYPATH /tmp/my_key.pem
             - cat /tmp/my_key.pem
