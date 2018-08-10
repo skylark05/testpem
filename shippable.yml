@@ -1,0 +1,17 @@
+resources:
+  - name: my_key
+    type: integration
+    integration: my_key
+    
+jobs:
+  - name: j1
+    type: runSh
+    steps:
+      - IN: my_key
+      - TASK:
+          script:
+            - export KEY=$(shipctl get_integration_resource_field my_key "key")
+            - echo $KEY > /tmp/key.pem
+            - cat /tmp/key.pem
+            - shipctl copy_file_from_resource_state my_key my_key.pem /tmp/my_key.pem
+            - cat /tmp/my_key.pem
